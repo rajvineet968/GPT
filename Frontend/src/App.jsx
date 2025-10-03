@@ -1,13 +1,16 @@
-import React from "react";
-import Sidebar from "./components/";
+import Sidebar from './Sidebar'
+import ChatWindow from './ChatWindow'
+import { MyContest } from './MyContext';
+import "./App.css";
 
 function App() {
+  const providervalues={};
   return (
-    <div className="flex">
-      <Sidebar />
-      <div className="flex-1">
-        {/* Main chat area / content goes here */}
-      </div>
+    <div className='app'>
+      <MyContest.Provider values={providervalues}>
+        <Sidebar></Sidebar>
+        <ChatWindow></ChatWindow>
+      </MyContest.Provider>
     </div>
   );
 }
