@@ -2,14 +2,21 @@ import Sidebar from './Sidebar'
 import ChatWindow from './ChatWindow'
 import { MyContest } from './MyContext';
 import "./App.css";
+import { useState } from "react";
 
 function App() {
-  const providervalues={};
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
+  const providervalues = {
+    isSidebarOpen,
+    setIsSidebarOpen,
+  };
+
   return (
     <div className='app'>
-      <MyContest.Provider values={providervalues}>
-        <Sidebar></Sidebar>
-        <ChatWindow></ChatWindow>
+      <MyContest.Provider value={providervalues}>
+        {isSidebarOpen && <Sidebar />}
+        <ChatWindow />
       </MyContest.Provider>
     </div>
   );

@@ -1,66 +1,117 @@
-.sidebar{
+.sidebar {
     background-color: #171717;
     color: #b4b4b4;
-    height:100vh;
-    width:320px;
+    height: 100vh;
+    width: 320px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-button{
+.button1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 10px;
-    padding:10px;
-    border-radius: 5px;
-    background-color: transparent;
-    border:solid 0.5px rgba(255,255,255,0.5);
+    padding: 10px;
+    background-color: transparent; /* removes background */
+    border: none;                 /* removes default button border */
+    outline: none;                /* removes focus outline */
     cursor: pointer;
 }
 
-/* .logo{
-    height: 25px;
-    width: 25px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-button span{
-    font-size: 20px;
-}
-button:hover{
-    background-color: rgba(180,180,180,0.05);
-} */
-.logo{
+.logo {
     font-size: large;
 }
 
-.history{
+/* New sidebar items styling */
+.sidebar-item i{
+    font-size: medium;
+    margin-right:10px;
+}
+.sidebar-options {
+    display: flex;
+    flex-direction: column;
+    /* gap: 10px; */
     margin: 10px;
-    padding:10px;
-    height: 100%;
 }
 
-.history li{
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    /* gap: 12px; */
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.sidebar-item:hover {
+    background-color: rgba(180, 180, 180, 0.1);
+}
+
+/* History */
+.history {
+    margin: 10px;
+    padding: 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    /* gap: 5px; */
+}
+
+.history li {
     list-style-type: none;
     cursor: pointer;
-    padding: 2px 5px; 
-    margin-bottom: 0.3rem;
+    padding: 6px;
+    border-radius: 8px;
     font-size: 14px;
-    border: solid 10px transparent;
+    transition: background-color 0.2s;
 }
 
-.history li:hover{
-    background-color: rgba(180,180,180,0.05);
-    border-radius: 10rem;
+.history li:hover {
+    background-color: rgba(180, 180, 180, 0.05);
 }
 
-.sign{
+.chat-title {
+    font-size: medium;
+    color: #b4b4b4;
+    margin-top: 0px !important;
+    margin-bottom: 10px; 
+    padding: 0; /* optional, remove padding */
+}
+
+/* Sign */
+.sign {
     padding: 10px;
     margin: 10px;
     font-size: 14px;
     text-align: center;
-    border-top:solid 0.25px rgba(255,255,255,0.5) ;
+    /* border-top: solid 0.25px rgba(255, 255, 255, 0.5); */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.sign p {
+    margin: 0;
+    color: #fff;
+    font-weight: 500;
+}
+
+.sign button {
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: #2e2e2e;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.sign button:hover {
+    background-color: #454545;
 }
