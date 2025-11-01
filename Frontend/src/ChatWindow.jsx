@@ -9,24 +9,46 @@ function ChatWindow() {
 
   const [userInput, setUserInput] = useState("");
   const [messages, setMessages] = useState([]);
+  const [ok,setok]=useState(false);
 
 // sourcery skip: avoid-function-declarations-in-blocks
   function close(){
     isClose(true);
   }
 
-    function handleSend(e) {
+  async function handleSend(e) {
     if (e.key === "Enter" && userInput.trim() !== "") {
+      setok(true);
       const newMessage = { role: "user", content: userInput };
-      const assistantReply = {
-        role: "assistant",
-        content: "Hello! I’m your AI assistant 😊",
-      };
 
-      setMessages((prev) => [...prev, newMessage, assistantReply]);
+      setMessages((prev) => [...prev, newMessage]);
       setUserInput("");
+
+        try {
+          const res = await fetch("http://localhost:5000/api/chat", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ message: userInput }),
+                      });
+
+          const data = await res.json();
+
+          const assistantReply = {
+            role: "assistant",
+            content: data.reply || "⚠️ No response from Groq",
+          };
+
+          setMessages((prev) => [...prev, assistantReply]);
+        } catch (error) {
+          console.error("Error fetching Groq response:", error);
+          setMessages((prev) => [
+            ...prev,
+          { role: "assistant", content: "❌ Error: Groq connection failed." },
+        ]);
+      }
     }
   }
+
 
   return (
     <div className="chatwindow">
@@ -63,7 +85,8 @@ function ChatWindow() {
 
       {/* Chat input */}
       <div className="chat-input-container">
-        <p className="startup-text">What’s on your mind today?</p>{/*subject to change */}
+        <p className="startup-text" style={{ visibility: ok ? "hidden" : "visible" }}>What’s on your mind today?</p>
+{/*subject to change */}
         <div className="input-row">
           <i className="fa-sharp fa-solid fa-plus icon"></i>
           <input

@@ -1,10 +1,34 @@
+/* Remove default markdown spacing */
+.message-bubble p,
+.message-bubble h1,
+.message-bubble h2,
+.message-bubble h3,
+.message-bubble h4,
+.message-bubble ul,
+.message-bubble ol,
+.message-bubble table,
+.message-bubble blockquote {
+  margin: 0;               /* remove top/bottom spacing */
+  padding: 0;
+}
+
+/* Add just a small gap between elements for readability */
+.message-bubble p + p,
+.message-bubble p + ul,
+.message-bubble p + ol,
+.message-bubble h1 + p,
+.message-bubble h2 + p {
+  margin-top: 6px;         /* controlled, small gap */
+}
+
 .chat {
   flex: 1; /* take all remaining vertical space */
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* pushes messages to bottom */
+  justify-content: flex-end;
   padding: 20px;
+  scroll-behavior: smooth; /* 👈 smooth auto-scroll effect */
 }
 
 

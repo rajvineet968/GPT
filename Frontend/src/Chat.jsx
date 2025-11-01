@@ -1,3 +1,4 @@
+import ReactMarkdown from "react-markdown";
 import "./Chat.css";
 
 function Chat({ messages }) {
@@ -7,7 +8,7 @@ function Chat({ messages }) {
         <div
           key={index}
           className={`message-bubble ${msg.role === "user" ? "user" : "assistant"}`}>
-          {msg.content}
+          <ReactMarkdown>{msg.content}</ReactMarkdown>
         </div>
       ))}
     </div>
