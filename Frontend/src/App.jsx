@@ -7,10 +7,7 @@ import { useState } from "react";
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
-  const providervalues = {
-    isSidebarOpen,
-    setIsSidebarOpen,
-  };
+  const providervalues = {isSidebarOpen,setIsSidebarOpen};
 
   return (
     <div className='app'>

@@ -1,0 +1,65 @@
+.chat {
+  flex: 1; /* take all remaining vertical space */
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* pushes messages to bottom */
+  padding: 20px;
+}
+
+
+/* Shared bubble style */
+.message-bubble {
+  max-width: 75%;
+  padding: 12px 16px;
+  border-radius: 14px;
+  line-height: 1.5;
+  word-wrap: break-word;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+/* User messages (right) */
+.message-bubble.user {
+  align-self: flex-end;
+  background-color: #0055ff30;
+  color: #fff;
+  border: 1px solid #0055ff60;
+}
+
+/* Assistant messages (left) */
+.message-bubble.assistant {
+  align-self: flex-start;
+  background-color: #2a2a2a;
+  color: #d4d4d8;
+  border: 1px solid #3b3b3b;
+}
+
+/* Markdown code blocks */
+.message-bubble pre {
+  background: #1e1e1e;
+  color: #dcdcdc;
+  padding: 10px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin-top: 8px;
+}
+
+/* Inline code */
+.message-bubble code {
+  background: #333;
+  padding: 2px 6px;
+  border-radius: 5px;
+  font-family: "Fira Code", monospace;
+  font-size: 14px;
+}
+
+/* Links */
+.message-bubble a {
+  color: #10a37f;
+  text-decoration: none;
+}
+
+.message-bubble a:hover {
+  text-decoration: underline;
+}
